@@ -66,19 +66,19 @@
 
 const result = document.getElementById('result')
 
-let approval = 'Not Approved!';
+//let approval = 'Not Approved!';
 
 
 function getApproval() {
    return new Promise((resolve, reject) => {
        setTimeout(() => {
 
-        const error = false;
+        const error = true;
 
         if(!error){
             resolve('Approved');
         }else {
-            reject('Error: Something went wrong')
+            reject('Error: Not Approved')
         }
             
         }, 1000);
@@ -90,13 +90,13 @@ getApproval().then( //call our function
     result.textContent = resolvedApproval; 
 });
 
-// getApproval().then( //call our function
-//     (resolvedApproval) => {
-//     result.textContent = resolvedApproval; 
-// });
+ getApproval().catch( //call our function
+     (err) => {
+     result.textContent = err; 
+ });
 
 
-getApproval().catch(
-    err => console.log(err)
-);
-result.textContent = approval;
+// getApproval().catch(
+//     err => console.log(err)
+// );
+//result.textContent = approval;
