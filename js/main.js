@@ -42,15 +42,45 @@
 // result.textContent = approval;
 
 
+// // Get Access to the DOM
+// const result = document.getElementById('result')
+
+// let approval = 'Not Approved!';
+
+// function getApproval() {
+//    return new Promise((resolve, reject) => {
+//        setTimeout(() => {
+//             resolve('Approved');
+//         }, 1000);
+//    });
+// }
+
+// getApproval().then( //call our function
+//     (resolvedApproval) => {
+//     result.textContent = resolvedApproval; 
+// });
+// result.textContent = approval;
+
+
 // Get Access to the DOM
+
 const result = document.getElementById('result')
 
 let approval = 'Not Approved!';
 
+
 function getApproval() {
    return new Promise((resolve, reject) => {
        setTimeout(() => {
+
+        const error = false;
+
+        if(!error){
             resolve('Approved');
+        }else {
+            reject('Error: Something went wrong')
+        }
+            
         }, 1000);
    });
 }
@@ -59,4 +89,14 @@ getApproval().then( //call our function
     (resolvedApproval) => {
     result.textContent = resolvedApproval; 
 });
+
+// getApproval().then( //call our function
+//     (resolvedApproval) => {
+//     result.textContent = resolvedApproval; 
+// });
+
+
+getApproval().catch(
+    err => console.log(err)
+);
 result.textContent = approval;
